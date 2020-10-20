@@ -1,0 +1,31 @@
+type Query {
+    allProducts: [Product]
+    findOne(id: ID!): Product
+    stopDataLog: String
+    startDataLog: String
+}
+
+type Mutation {
+    createProduct(product: ProductInput): Product
+    deleteProduct(id: ID!): String
+    updateProduct(id: ID!,product: UpdateInput): Product
+}
+
+input UpdateInput {
+    name: String
+    qty: Int
+    price: Int
+}
+input ProductInput {
+    name: String!
+    qty: Int!
+    price: Int!
+}
+type Product {
+    id: ID!
+    name: String
+    qty: Int
+    price: Int
+    created: String
+}
+
